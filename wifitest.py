@@ -52,6 +52,8 @@ def scan(face):
     time.sleep(5)
     for i,x in enumerate(face.scan_results()):
         ssid = x.ssid
+        if ssid is None:
+            continue
         if len(ssid) == 0:          #hidden ssid
             ssid = '<length: 0>'
         elif ssid == '\\x00':       #hidden ssid
